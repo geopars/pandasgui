@@ -1,8 +1,8 @@
 from math import ceil
 
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
+from PySide2.QtCore import Qt, QTimer, QRect, Slot
+from PySide2.QtGui import QColor, QPainter
+from PySide2.QtWidgets import QWidget, QDialog, QApplication
 
 
 class Spinner(QWidget):
@@ -33,7 +33,7 @@ class Spinner(QWidget):
         self.updateTimer()
         self.hide()
 
-    @pyqtSlot()
+    @Slot()
     def rotate(self):
         self.mCurrentCounter += 1
         if self.mCurrentCounter > self.numberOfLines():

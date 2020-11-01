@@ -2,9 +2,8 @@ import os
 import sys
 import tempfile
 
+from PySide2 import QtWidgets, QtCore, QtGui
 from plotly.io import to_html
-from PyQt5 import QtCore, QtGui, QtWidgets, sip
-from PyQt5.QtCore import Qt
 
 from pandasgui.utility import get_logger
 

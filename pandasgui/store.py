@@ -1,15 +1,15 @@
-from dataclasses import dataclass, field, asdict
-from typing import Dict, List, Union, Iterable
-import pandas as pd
-from pandas import DataFrame
-from PyQt5 import QtCore, QtGui, QtWidgets, sip
-from PyQt5.QtCore import Qt
-import traceback
-from functools import wraps
-from datetime import datetime
-from pandasgui.utility import get_logger, unique_name, in_interactive_console
 import os
-import collections
+import pandas as pd
+from PySide2 import QtWidgets
+
+from pandas      import DataFrame
+from dataclasses import dataclass, field
+from typing      import List, Union, Iterable
+from functools   import wraps
+from datetime    import datetime
+
+from pandasgui.utility import get_logger, unique_name, in_interactive_console
+
 
 logger = get_logger(__name__)
 

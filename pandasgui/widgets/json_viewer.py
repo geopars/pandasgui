@@ -2,7 +2,8 @@ import collections
 import json
 import sys
 from typing import Union
-from PyQt5 import QtCore, QtGui, QtWidgets
+
+from PySide2 import QtWidgets, QtCore
 
 
 class JsonViewer(QtWidgets.QWidget):

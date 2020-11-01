@@ -2,10 +2,11 @@ import sys
 import threading
 import os
 
+
 import numpy as np
 import pandas as pd
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import Qt
+from PySide2 import QtWidgets, QtCore, QtGui
+from PySide2.QtCore import Qt
 
 from pandasgui.utility import get_logger
 from pandasgui.store import Store, PandasGuiDataFrame

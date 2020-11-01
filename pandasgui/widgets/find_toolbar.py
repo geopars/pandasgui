@@ -2,8 +2,8 @@ import re
 import time
 
 import pkg_resources
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import Qt
+from PySide2 import QtWidgets, QtGui, QtCore
+from PySide2.QtCore import Qt
 
 
 class FindToolbar(QtWidgets.QToolBar):

@@ -1,8 +1,9 @@
 import logging
 import pandas as pd
-from PyQt5 import QtWidgets
 from typing import List, Union
 import sys
+
+from PySide2 import QtWidgets
 
 logger = logging.getLogger(__name__)
 
@@ -33,7 +34,7 @@ def throttle(wait):
 
             try:
                 throttled.t.cancel()
-            except(AttributeError):
+            except AttributeError:
                 pass
             throttled.t = Timer(wait, call_it)
             throttled.t.start()

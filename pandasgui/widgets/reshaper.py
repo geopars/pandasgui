@@ -1,8 +1,8 @@
 import sys
 
-import plotly.express as px
-from PyQt5 import QtCore, QtGui, QtWidgets
 import pandas as pd
+from PySide2 import QtWidgets, QtGui
+
 import pandasgui
 import os
 from typing import Union, List, Iterable, Callable

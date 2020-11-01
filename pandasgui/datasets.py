@@ -50,6 +50,7 @@ def to_csv(df, path):
     else:
         return df.to_csv(path, encoding='UTF-8', index=False)
 
+
 for ix, name in enumerate(dataset_names):
     local_data_path = os.path.join(LOCAL_DATA_DIR, f"{name}.csv")
     os.makedirs(LOCAL_DATA_DIR, exist_ok=True)

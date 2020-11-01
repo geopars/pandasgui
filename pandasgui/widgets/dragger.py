@@ -1,13 +1,16 @@
 """Dialog box widgets for various GUI functions"""
+#todo fix dragable
 
 import re
-from PyQt5 import QtCore, QtGui, QtWidgets, sip
-from PyQt5.QtCore import Qt
-from typing import List, Callable
 import os
-import pandasgui
 import ast
-from typing import Union, List, Iterable
+import pandasgui
+
+from PySide2            import QtWidgets, QtCore, QtGui
+from PySide2.QtCore     import Qt
+from PySide2.QtWidgets  import QApplication
+
+from typing      import Callable, List
 from dataclasses import dataclass
 
 
@@ -373,7 +376,6 @@ class SourceList(QtWidgets.QListWidget):
 
 if __name__ == "__main__":
     import sys
-    from PyQt5.QtWidgets import QApplication
     from pandasgui.datasets import pokemon
 
     app = QApplication(sys.argv)

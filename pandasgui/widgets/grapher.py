@@ -1,21 +1,19 @@
-import sys
-from typing import NewType, Union, List, Callable, Iterable
-from dataclasses import dataclass
-import pandasgui
 import os
+import sys
+
+from PySide2 import QtWidgets, QtCore, QtGui
+
+import pandasgui
+import pandas as pd
 import plotly.express as px
 import plotly
 
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import Qt
-
-import pandas as pd
-from pandasgui.store import Store, PandasGuiDataFrame
-
-from pandasgui.utility import flatten_df, get_logger
-from pandasgui.widgets.plotly_viewer import PlotlyViewer
-from pandasgui.widgets.spinner import Spinner
-from pandasgui.widgets.dragger import Dragger, ColumnArg, Schema
+from typing                             import Union, List
+from pandasgui.store                    import PandasGuiDataFrame
+from pandasgui.utility                  import flatten_df, get_logger
+from pandasgui.widgets.plotly_viewer    import PlotlyViewer
+from pandasgui.widgets.spinner          import Spinner
+from pandasgui.widgets.dragger          import Dragger, ColumnArg, Schema
 
 logger = get_logger(__name__)
 
@@ -37,7 +35,6 @@ class Grapher(QtWidgets.QWidget):
         self.plot_type_picker.setSpacing(20)
         self.plot_type_picker.setResizeMode(self.plot_type_picker.Adjust)
         self.plot_type_picker.setDragDropMode(self.plot_type_picker.NoDragDrop)
-
 
         self.plot_type_picker.sizeHint = lambda: QtCore.QSize(500, 250)
 
