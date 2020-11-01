@@ -161,7 +161,7 @@ class DetachableTabWidget(QtWidgets.QTabWidget):
     #                     determined that the drop occurred on an
     #                     existing tab)
     #  @param    dropPos  the mouse cursor position when the drop occurred
-    @QtCore.pyqtSlot(str, int, QtCore.QPoint)
+    @Slot(str, int, QtCore.QPoint)
     def detachedTabDrop(self, name, index, dropPos):
 
         # If the drop occurred on an existing tab, insert the detached
@@ -237,7 +237,7 @@ class DetachableTabWidget(QtWidgets.QTabWidget):
         #  Handle a window drop event
         #
         #  @param    dropPos    the mouse cursor position of the drop
-        @QtCore.pyqtSlot(QtCore.QPoint)
+        @Slot(QtCore.QPoint)
         def windowDropSlot(self, dropPos):
             self.onDropSignal.emit(self.objectName(), dropPos)
 

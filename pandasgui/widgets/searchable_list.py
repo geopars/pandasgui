@@ -46,7 +46,6 @@ if __name__ == "__main__":
     from PySide2.QtWidgets import QApplication
 
     app = QApplication(sys.argv)
-
     test = SearchableListWidget(['cat', 'dog', 'hotdog', 'catch'])
     test.show()
 

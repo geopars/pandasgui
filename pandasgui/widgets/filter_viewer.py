@@ -1,14 +1,14 @@
 import os
 import sys
-
-from PySide2 import QtWidgets, QtCore, QtGui
-from PySide2.QtCore import QUrl, Qt
-from PySide2.QtGui import QDesktopServices
-
-from pandasgui.utility import get_logger
-from pandasgui.store import PandasGuiDataFrame
-import typing
 import pandasgui
+
+from PySide2            import QtWidgets, QtCore, QtGui
+from PySide2.QtCore     import QUrl, Qt
+from PySide2.QtGui      import QDesktopServices
+
+from pandasgui.utility  import get_logger
+from pandasgui.store    import PandasGuiDataFrame
+
 
 logger = get_logger(__name__)
 

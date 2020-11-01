@@ -1,16 +1,16 @@
-import sys
-import threading
 import os
-
-
-import numpy as np
-import pandas as pd
-from PySide2 import QtWidgets, QtCore, QtGui
-from PySide2.QtCore import Qt
-
-from pandasgui.utility import get_logger
-from pandasgui.store import Store, PandasGuiDataFrame
+import sys
 import pandasgui
+import threading
+
+import numpy  as np
+import pandas as pd
+
+from PySide2            import QtWidgets, QtCore, QtGui
+from PySide2.QtCore     import Qt
+from pandasgui.utility  import get_logger
+from pandasgui.store    import PandasGuiDataFrame
+
 
 logger = get_logger(__name__)
 

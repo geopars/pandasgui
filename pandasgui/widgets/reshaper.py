@@ -1,17 +1,12 @@
-import sys
-
-import pandas as pd
-from PySide2 import QtWidgets, QtGui
-
-import pandasgui
 import os
-from typing import Union, List, Iterable, Callable
+import sys
+import pandasgui
 
-from pandasgui.store import Store, PandasGuiDataFrame, track_history
-
-from pandasgui.utility import flatten_df, get_logger
-from pandasgui.widgets.spinner import Spinner
-from pandasgui.widgets.dragger import Dragger, Schema, ColumnArg, OptionListArg
+from PySide2                    import QtWidgets, QtGui
+from typing                     import Iterable, Callable
+from pandasgui.store            import PandasGuiDataFrame, track_history
+from pandasgui.utility          import flatten_df, get_logger
+from pandasgui.widgets.dragger  import Dragger, Schema, ColumnArg, OptionListArg
 
 logger = get_logger(__name__)
 
@@ -111,12 +106,9 @@ def pivot(pgdf: PandasGuiDataFrame,
 
 
 @track_history
-def melt(pgdf: PandasGuiDataFrame,
-          id_vars: Iterable = None,
-          value_vars: Iterable = None):
+def melt(pgdf: PandasGuiDataFrame, id_vars: Iterable = None, value_vars: Iterable = None):
     df = pgdf.dataframe
-    return df.melt(id_vars=id_vars,
-                   value_vars=value_vars)
+    return df.melt(id_vars=id_vars, value_vars=value_vars)
 
 
 schemas = [

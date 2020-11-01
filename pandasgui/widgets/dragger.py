@@ -10,8 +10,8 @@ from PySide2            import QtWidgets, QtCore, QtGui
 from PySide2.QtCore     import Qt
 from PySide2.QtWidgets  import QApplication
 
-from typing      import Callable, List
-from dataclasses import dataclass
+from typing             import Callable, List
+from dataclasses        import dataclass
 
 
 # All argument schemas inherit from this
@@ -50,9 +50,9 @@ class Dragger(QtWidgets.QWidget):
         self.source_tree_unfiltered = []
 
         # Ensure no duplicates
-        assert (len(sources) == len(set(sources)))
+        assert (len(sources)      == len(set(sources)))
         assert (len(destinations) == len(set(destinations)))
-        assert (len(sources) == len(source_types))
+        assert (len(sources)      == len(source_types))
 
         # Custom kwargs dialog
         self.kwargs_dialog = self.CustomKwargsEditor(self)

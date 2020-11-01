@@ -5,6 +5,9 @@ import pkg_resources
 
 from typing            import Union, Callable
 from dataclasses       import dataclass
+
+from PySide2 import QtWidgets, QtCore, QtGui
+
 from pandasgui.store   import Store
 from pandasgui.utility import fix_ipython, get_logger, as_dict, delete_datasets
 from pandasgui.widgets.find_toolbar import FindToolbar

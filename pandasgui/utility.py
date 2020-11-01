@@ -1,8 +1,8 @@
+import sys
 import logging
 import pandas as pd
-from typing import List, Union
-import sys
 
+from typing  import List, Union
 from PySide2 import QtWidgets
 
 logger = logging.getLogger(__name__)
@@ -27,6 +27,7 @@ def throttle(wait):
         execution until after wait seconds
         have elapsed since the last time it was invoked. """
     from threading import Timer
+
     def decorator(fn):
         def throttled(*args, **kwargs):
             def call_it():

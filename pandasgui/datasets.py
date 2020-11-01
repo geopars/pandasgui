@@ -1,10 +1,10 @@
 # Some small datasets from https://github.com/adamerose/datasets
 
 import os
-import shutil
-import pandas as pd
-from pandasgui.utility import get_logger
 import numpy as np
+import pandas as pd
+
+from pandasgui.utility   import get_logger
 from pandasgui.constants import LOCAL_DATA_DIR
 
 logger = get_logger(__name__)

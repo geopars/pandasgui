@@ -50,6 +50,7 @@ class DockWidget(QtWidgets.QDockWidget):
         else:
             main.addDockWidget(Qt.LeftDockWidgetArea, self)
 
+
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])
     main = QtWidgets.QMainWindow()

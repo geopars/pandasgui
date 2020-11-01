@@ -2,8 +2,8 @@ import re
 import time
 
 import pkg_resources
-from PySide2 import QtWidgets, QtGui, QtCore
-from PySide2.QtCore import Qt
+from PySide2        import QtWidgets, QtGui, QtCore
+from PySide2.QtCore import Qt, Slot
 
 
 class FindToolbar(QtWidgets.QToolBar):
@@ -132,7 +132,7 @@ class FindToolbar(QtWidgets.QToolBar):
         # hide toolbar
         self.setFixedHeight(0)
 
-    @QtCore.pyqtSlot(str)
+    @Slot(str)
     def query(self, text):
         """
         Query operation done each time user changes the text.
@@ -162,7 +162,7 @@ class FindToolbar(QtWidgets.QToolBar):
         self.findThread.matches.connect(self.update_matches)
         self.findThread.start()
 
-    @QtCore.pyqtSlot(list)
+    @Slot(list)
     def update_matches(self, cells_matched):
         """
         PyQt Slot that updates the matches found each time it gets a signal.
@@ -187,7 +187,7 @@ class FindToolbar(QtWidgets.QToolBar):
             self.search_selection = 0
             self.highlight_match()
 
-    @QtCore.pyqtSlot()
+    @Slot()
     def show_find_bar(self):
         if self.height() == 0:
             animation_duration = 200
@@ -225,7 +225,7 @@ class FindToolbar(QtWidgets.QToolBar):
             if self.findThread:
                 self.findThread.stop()
 
-    @QtCore.pyqtSlot()
+    @Slot()
     def select_next_match(self):
         if self.search_matches:
             # loop around to the first match if user hits last match
@@ -236,7 +236,7 @@ class FindToolbar(QtWidgets.QToolBar):
 
             self.highlight_match()
 
-    @QtCore.pyqtSlot()
+    @Slot()
     def select_previous_match(self):
         if self.search_matches:
             # loop around to the last match if user hits first match
@@ -247,14 +247,14 @@ class FindToolbar(QtWidgets.QToolBar):
 
             self.highlight_match()
 
-    @QtCore.pyqtSlot()
+    @Slot()
     def toggle_match_case(self):
         self.match_flags["case"] = not self.match_flags["case"]
 
         if self.find_textbox.text():
             self.query(self.find_textbox.text())
 
-    @QtCore.pyqtSlot()
+    @Slot()
     def toggle_regex(self):
         self.match_flags["regex"] = not self.match_flags["regex"]
         if self.match_flags["whole word"]:
@@ -264,7 +264,7 @@ class FindToolbar(QtWidgets.QToolBar):
         if self.find_textbox.text():
             self.query(self.find_textbox.text())
 
-    @QtCore.pyqtSlot()
+    @Slot()
     def toggle_match_exactly(self):
         self.match_flags["whole word"] = not self.match_flags["whole word"]
         if self.match_flags["regex"]:

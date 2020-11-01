@@ -1,7 +1,7 @@
 from math import ceil
 
-from PySide2.QtCore import Qt, QTimer, QRect, Slot
-from PySide2.QtGui import QColor, QPainter
+from PySide2.QtCore    import Qt, QTimer, QRect, Slot
+from PySide2.QtGui     import QColor, QPainter
 from PySide2.QtWidgets import QWidget, QDialog, QApplication
 
 

@@ -1,8 +1,5 @@
-import collections
-import json
 import sys
-from typing import Union
-
+from typing  import Union
 from PySide2 import QtWidgets, QtCore
 
 
@@ -40,11 +37,8 @@ class JsonViewer(QtWidgets.QWidget):
         layout.addWidget(self.tree_widget)
 
         self.setLayout(layout)
-
         self.resize(QtCore.QSize(400,500))
-
         self.show()
-
 
     def find(self):
 

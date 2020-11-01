@@ -1,15 +1,19 @@
 import os
 import pandas as pd
-from PySide2 import QtWidgets
 
+from PySide2     import QtWidgets
 from pandas      import DataFrame
 from dataclasses import dataclass, field
 from typing      import List, Union, Iterable
 from functools   import wraps
 from datetime    import datetime
 
-from pandasgui.utility import get_logger, unique_name, in_interactive_console
-
+from pandasgui.gui                          import PandasGui
+from pandasgui.utility                      import in_interactive_console, unique_name, get_logger
+from pandasgui.widgets.dataframe_explorer   import DataFrameExplorer
+from pandasgui.widgets.dataframe_viewer     import DataFrameViewer
+from pandasgui.widgets.filter_viewer        import FilterViewer
+from pandasgui.widgets.navigator            import Navigator
 
 logger = get_logger(__name__)
 
@@ -35,25 +39,23 @@ class Settings:
 
 @dataclass
 class Filter:
-    expr: str
+    expr:    str
     enabled: bool
-    failed: bool
+    failed:  bool
 
 
 @dataclass
 class HistoryItem:
-    name: str
-    args: tuple
+    name:   str
+    args:   tuple
     kwargs: dict
-    time: str
+    time:   str
 
 
 def track_history(func):
     @wraps(func)
     def wrapper(pgdf, *args, **kwargs):
-        history_item = HistoryItem(name=func.__name__,
-                                   args=args,
-                                   kwargs=kwargs,
+        history_item = HistoryItem(name=func.__name__, args=args, kwargs=kwargs,
                                    time=datetime.now().strftime("%H:%M:%S"))
         pgdf.history.append(history_item)
 
@@ -76,9 +78,9 @@ class PandasGuiDataFrame:
         # References to other object instances that may be assigned later
         self.settings: Settings = Settings()
         self.store: Union[Store, None] = None
-        self.dataframe_explorer: Union["DataFrameExplorer", None] = None
-        self.dataframe_viewer: Union["DataFrameViewer", None] = None
-        self.filter_viewer: Union["FilterViewer", None] = None
+        self.dataframe_explorer: Union[DataFrameExplorer, None] = None
+        self.dataframe_viewer: Union[DataFrameViewer, None] = None
+        self.filter_viewer: Union[FilterViewer, None] = None
 
         self.column_sorted: Union[int, None] = None
         self.index_sorted: Union[int, None] = None
@@ -231,10 +233,10 @@ class PandasGuiDataFrame:
 
 @dataclass
 class Store:
-    settings: Union["Settings", None] = None
+    settings: Union[Settings, None] = None
     data: List[PandasGuiDataFrame] = field(default_factory=list)
-    gui: Union["PandasGui", None] = None
-    navigator: Union["Navigator", None] = None
+    gui: Union[PandasGui, None] = None
+    navigator: Union[Navigator, None] = None
     selected_pgdf: Union[PandasGuiDataFrame, None] = None
 
     def __post_init__(self):

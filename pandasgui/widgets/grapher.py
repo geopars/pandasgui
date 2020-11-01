@@ -1,13 +1,12 @@
 import os
 import sys
-
-from PySide2 import QtWidgets, QtCore, QtGui
-
 import pandasgui
+
 import pandas as pd
 import plotly.express as px
 import plotly
 
+from PySide2                            import QtWidgets, QtCore, QtGui
 from typing                             import Union, List
 from pandasgui.store                    import PandasGuiDataFrame
 from pandasgui.utility                  import flatten_df, get_logger
@@ -111,7 +110,7 @@ class Grapher(QtWidgets.QWidget):
         self.current_worker.start()
         self.workers.append(self.current_worker)
 
-    @QtCore.pyqtSlot(object)
+    @Slot(object)
     def worker_callback(self, fig):
         self.figure_viewer.set_figure(fig)
         self.spinner.stop()

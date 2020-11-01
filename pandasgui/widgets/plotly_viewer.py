@@ -64,7 +64,7 @@ class PlotlyViewer(QtWebEngineWidgets.QWebEngineView):
         return QtCore.QSize(400, 400)
 
     # https://stackoverflow.com/questions/55963931/how-to-download-csv-file-with-qwebengineview-and-qurl
-    @QtCore.pyqtSlot("QWebEngineDownloadItem*")
+    @Slot("QWebEngineDownloadItem*")
     def on_downloadRequested(self, download):
         dialog = QtWidgets.QFileDialog()
         dialog.setDefaultSuffix(".png")
